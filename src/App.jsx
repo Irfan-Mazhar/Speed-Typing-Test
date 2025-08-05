@@ -1,6 +1,6 @@
 import WordBox from "./components/WordBox";
 import { useWordContext } from "./contexts/WordContext";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -100,12 +100,10 @@ function App() {
         Speed Typing Test
       </h1>
 
-      {finishedRace ? (
+      {timeUp ? (
         <p class="mb-8 text-yellow-200 text-4xl">
           Start Typing to retake the test...
         </p>
-      ) : timeUp ? (
-        <p class="mb-8 text-yellow-200 text-4xl">Time's Up!</p>
       ) : (
         <p class="mb-8 text-yellow-200 text-4xl">Check Your WPM!</p>
       )}
