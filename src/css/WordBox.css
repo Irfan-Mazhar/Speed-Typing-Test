@@ -1,0 +1,27 @@
+.highlights{
+    color: green;
+}  
+body{
+    display: flex;
+    flex-direction: column;
+}
+.wordBox-parent{
+    width:800px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:5px;
+    text-align: center;
+}
+.correctLetter{
+    color: green;
+}
+
+.incorrectLetter{
+    color: red;
+    text-decoration: underline;
+}
+.highlightLetter{
+    text-decoration: underline;
+    /* font-weight: bold; */
+}
