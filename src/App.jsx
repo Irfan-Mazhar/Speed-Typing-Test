@@ -96,7 +96,7 @@ function App() {
 
   return (
     <div class=" flex flex-col justify-center items-center text-center  md:mt-25  ">
-      <h1 class="text-6xl mb-3.5 mt-6 font-bold text-center text-yellow-500 md:mb-8 md:text-9xl  md:pt-5 ">
+      <h1 class="text-6xl mb-3.5 mt-6 font-bold text-center text-yellow-500 md:mb-8 lg:text-9xl  md:pt-5 ">
         Speed Typing Test
       </h1>
 
@@ -149,7 +149,7 @@ function App() {
         </button>
         <div
           className="wpm-counter"
-          class="flex flex-col text-3xl text-left text-yellow-200 mt-4 md:text-4xl md:mt-4 md:gap-8"
+          class="flex flex-col text-3xl text-left text-yellow-200 mt-4 md:flex-row md:text-4xl md:mt-4 md:gap-8"
         >
           <p>WPM : {wpm ? wpm : "-"} </p>
           <span>Raw WPM : {rawWpm ? rawWpm : "-"}</span>
