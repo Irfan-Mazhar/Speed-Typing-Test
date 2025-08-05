@@ -97,7 +97,7 @@ export const WordProvider = ({ children }) => {
     }, [num, hasTimeUp, onTimeUp]);
 
     return (
-      <div className="timer-parent " class="text-3xl text-white mb-2">
+      <div className="timer-parent " class="text-2xl text-white mb-2 md:text-3xl">
         {num}
       </div>
     );

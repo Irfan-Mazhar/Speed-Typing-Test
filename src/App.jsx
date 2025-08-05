@@ -95,17 +95,17 @@ function App() {
   };
 
   return (
-    <div class=" flex flex-col justify-center items-center mt-25 ">
-      <h1 class="text-9xl font-bold text-yellow-500 mb-8  pt-5">
+    <div class=" flex flex-col justify-center items-center text-center  md:mt-25  ">
+      <h1 class="text-6xl mb-3.5 mt-6 font-bold text-center text-yellow-500 md:mb-8 md:text-9xl  md:pt-5 ">
         Speed Typing Test
       </h1>
 
       {timeUp ? (
-        <p class="mb-8 text-yellow-200 text-4xl">
+        <p class="text-3xl mb-15 text-yellow-200 md:text-4xl md:mb-8">
           Start Typing to retake the test...
         </p>
       ) : (
-        <p class="mb-8 text-yellow-200 text-4xl">Check Your WPM!</p>
+        <p class="text-3xl mb-15 text-yellow-200 md:mb-8 md:text-4xl">Check Your WPM!</p>
       )}
 
       <div class="flex flex-col items-center justify-center ">
@@ -115,11 +115,11 @@ function App() {
           className="inputText"
           value={inputText}
           onChange={onChange}
-          class="border-2 rounded-lg focus:outline-none bg-blue-100 text-4xl caret-yellow-500 pl-1"
+          class="text-lg border-2 rounded-lg focus:outline-none bg-blue-100 caret-yellow-500 pl-1 md:text-4xl"
         ></input>
         <div
           className="Word-Box"
-          class="p-5 text-4xl mb-10 bg-gray-400 mt-5 rounded-lg"
+          class="p-2 text-2xl mb-10 mt-5 ml-3 mr-3 rounded-lg bg-gray-400 md:p-5 md:text-4xl md:mb-10 md:mt-5 "
         >
           <WordBox
             words={currentWords}
@@ -130,7 +130,7 @@ function App() {
         </div>
         <button
           className="restart_btn"
-          class="border-2 rounded-full bg-yellow-100 mb-3 p-6 cursor-pointer hover:bg-yellow-200"
+          class="border-2 rounded-full bg-yellow-100 mb-8 p-4 cursor-pointer hover:bg-yellow-200 md:mb-3 md:p-6"
           onClick={() => {
             resetTest();
           }}
@@ -149,7 +149,7 @@ function App() {
         </button>
         <div
           className="wpm-counter"
-          class="flex mt-4 gap-8 text-yellow-200 text-4xl"
+          class="flex flex-col text-3xl text-left text-yellow-200 mt-4 md:text-4xl md:mt-4 md:gap-8"
         >
           <p>WPM : {wpm ? wpm : "-"} </p>
           <span>Raw WPM : {rawWpm ? rawWpm : "-"}</span>

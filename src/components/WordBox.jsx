@@ -8,7 +8,7 @@ function WordBox({ words, currentWordIndex, currentLetterIndex, inputText }) {
   const visible_line = words.slice(start, end);
   if (!words || words.length === 0) return null;
   return (
-    <div className="wordBox-parent">
+    <div className="wordBox-parent" >
       {visible_line.map((word, windex) => {
         const globalWindex = start + windex;
         return (
