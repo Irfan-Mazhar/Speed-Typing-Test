@@ -40,7 +40,23 @@ export const WordProvider = ({ children }) => {
     "ukulele",
     "information",
     "strong",
-    "goat"
+    "goat",
+    "impression",
+    "college",
+    "university",
+    "take",
+    "hat",
+    "where",
+    "what",
+    "how",
+    "much",
+    "now",
+    "see",
+    "could",
+    "free",
+    "pirate",
+    "type",
+    "nice",
   ];
 
   const shuffle = (words) => {
@@ -58,17 +74,12 @@ export const WordProvider = ({ children }) => {
     const res = shuffle(words);
     setCurrentWords(res);
   };
+
   function Timer({ onTimeUp }) {
     const [num, setNum] = useState(30);
     const [hasTimeUp, setHasTimeUp] = useState(false);
     const intervalRef = useRef();
 
-    // const decreaseNum = () => setNum((prev) => prev - 1);
-
-    // useEffect(() => {
-    //   intervalRef.current = setInterval(decreaseNum, 1000);
-    //   return () => clearInterval(intervalRef.current);
-    // }, []);
     useEffect(() => {
       intervalRef.current = setInterval(() => {
         setNum((prev) => prev - 1);
@@ -86,9 +97,7 @@ export const WordProvider = ({ children }) => {
     }, [num, hasTimeUp, onTimeUp]);
 
     return (
-      <div className="timer-parent">
-        {/* {hasTimeUp
-          ? "Time's Up!" */}
+      <div className="timer-parent " class="text-3xl text-white mb-2">
         {num}
       </div>
     );

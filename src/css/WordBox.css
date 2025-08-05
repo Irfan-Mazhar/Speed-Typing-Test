@@ -1,16 +1,9 @@
-.highlights{
-    color: green;
-}  
-body{
-    display: flex;
-    flex-direction: column;
-}
 .wordBox-parent{
-    width:800px;
+    width:1200px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap:5px;
+    gap:10px;
     text-align: center;
 }
 .correctLetter{
@@ -23,5 +16,4 @@ body{
 }
 .highlightLetter{
     text-decoration: underline;
-    /* font-weight: bold; */
 }
