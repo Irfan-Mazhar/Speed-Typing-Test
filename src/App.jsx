@@ -63,7 +63,7 @@ function App() {
       setRawCount((prev) => prev + 1);
     }
 
-    setInputText(value);
+    setInputText(value.toLowerCase());
     const typedWord = value;
     const currentWord = currentWords[currentIndex];
 
