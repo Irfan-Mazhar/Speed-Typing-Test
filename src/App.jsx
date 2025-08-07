@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     setStartTime(Date.now());
-  }, [isTyping == true]);
+  }, [isTyping]);
 
   useEffect(() => {
     setInputText("");
@@ -36,8 +36,8 @@ function App() {
     if (!finishedRace) alert("Time Up!");
     const end = Date.now();
     const durationMin = (end - startTime) / 1000 / 60;
-    setRawWpm(Math.floor(rawCount / 5 / durationMin));
-    setWpm(Math.floor(charCount / 5 / durationMin));
+    setRawWpm(rawCount / 5 / durationMin);
+    setWpm(charCount / 5 / durationMin);
     setCharCount(0);
     setRawCount(0);
     setInputText("");
@@ -46,20 +46,23 @@ function App() {
   }
 
   function resetTest() {
+    setInputText("");
     setTimeUp(false);
     setFinishedRace(false);
     setIsTyping(false);
+    setCharCount(0);
+    setRawCount(0);
     shuffleWords();
     setWpm(null);
     setRawWpm(null);
   }
+
   const onChange = (e) => {
     setFinishedRace(false);
     setTimeUp(false);
     setIsTyping(true);
     const value = e.target.value;
-    if (value.length > inputText.length) {
-      const newChar = value[value.length - 1];
+    if (value.length > inputText.length || value.length < inputText.length) {
       setRawCount((prev) => prev + 1);
     }
 
@@ -70,7 +73,8 @@ function App() {
     if (value[currentLetterIndex] === currentWord[currentLetterIndex]) {
       setCurrentLetterIndex((prev) => prev + 1);
       setCharCount((prev) => prev + 1);
-      console.log("charcount" + charCount, " rawCount: ", rawCount);
+      // setRawCount((prev) => prev + 1);
+      console.log("charcount" + charCount, " rawCount: " + rawCount);
     }
     if (value.endsWith(" ")) {
       if (
@@ -80,6 +84,7 @@ function App() {
       ) {
         setInputText("");
         setCharCount((prev) => prev + 1);
+        // setRawCount((prev) => prev + 1)
         setCurrentIndex((prev) => prev + 1);
         setCurrentLetterIndex(0);
       }
@@ -95,7 +100,7 @@ function App() {
   };
 
   return (
-    <div class=" flex flex-col justify-center items-center text-center  md:mt-25  ">
+    <div class=" flex flex-col justify-center items-center text-center  md:mt-25  font-mono">
       <h1 class="text-6xl mb-3.5 mt-6 font-bold text-center text-yellow-500 md:mb-8 lg:text-9xl  md:pt-5 ">
         Speed Typing Test
       </h1>
@@ -105,15 +110,23 @@ function App() {
           Start Typing to retake the test...
         </p>
       ) : (
-        <p class="text-3xl mb-15 text-yellow-200 md:mb-8 md:text-4xl">Check Your WPM!</p>
+        <p class="text-3xl mb-15 text-yellow-200 md:mb-8 md:text-4xl">
+          Check Your WPM!
+        </p>
       )}
 
-      <div class="flex flex-col items-center justify-center ">
+      <div class="flex flex-col items-center justify-center">
         {isTyping && <Timer onTimeUp={endTest} />}
         <input
           type="text"
           className="inputText"
           value={inputText}
+          onKeyDown={(e) => {
+            if (e.key === "Shift") {
+              setInputText("");
+              resetTest();
+            }
+          }}
           onChange={onChange}
           class="text-lg border-2 rounded-lg focus:outline-none bg-blue-100 caret-yellow-500 pl-1 md:text-4xl"
         ></input>
@@ -135,6 +148,7 @@ function App() {
             resetTest();
           }}
         >
+
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -151,11 +165,14 @@ function App() {
           className="wpm-counter"
           class="flex flex-col text-3xl text-left text-yellow-200 mt-4 md:flex-row md:text-4xl md:mt-4 md:gap-8"
         >
-          <p>WPM : {wpm ? wpm : "-"} </p>
-          <span>Raw WPM : {rawWpm ? rawWpm : "-"}</span>
+          <p>WPM : {wpm ? Math.floor(wpm) : "-"} </p>
+          <span>Raw WPM : {rawWpm ? Math.floor(rawWpm) : "-"}</span>
           <p>Accuracy : {wpm ? Math.floor((wpm / rawWpm) * 100) + "%" : "-"}</p>
         </div>
       </div>
+      <span class="mt-10 text-sm text-center text-white relative bottom-1">
+        Press Shift to restart test.
+      </span>
     </div>
   );
 }
