@@ -1,12 +1,76 @@
-# React + Vite
+# Speed Typing Test ⌨️⚡
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and interactive **typing speed test** built with **React**.
+It measures **Words Per Minute (WPM)**, **Raw WPM**, and **Accuracy**,
+while giving you a smooth typing experience.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   ⏱️ **30-second timer** that starts when you begin typing.
+-   🔀 **Random word generation** from a predefined list.
+-   🧮 Real-time calculation of:
+    -   WPM (based on correct characters typed)
+    -   Raw WPM (total typed characters regardless of correctness)
+    -   Accuracy percentage
+-   🟢 Visual feedback:
+    -   Correct letters highlighted ✅
+    -   Incorrect letters highlighted ❌
+-   🔄 Reset anytime by pressing **Shift** or using the restart button.
+-   📱 Responsive design (works on desktop and mobile).
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-   [React](https://react.dev/) with **Vite**
+-   React Context API (for managing words and timer state)
+-   Tailwind CSS (for styling)
+
+## 📂 Project Structure
+
+    .
+    ├── index.html
+    ├── assets/
+    │    └── screenshot.png
+    ├── src/
+    │   ├── App.jsx              # Main app logic
+    │   ├── main.jsx             # Entry point
+    │   ├── contexts/
+    │   │   └── WordContext.jsx  # Provides words + timer via Context API
+    │   ├── components/
+    │   │   ├── WordBox.jsx      # Displays words & highlights letters
+    │   │   └── Timer.jsx        # Standalone timer (unused in App)
+
+## ▶️ Getting Started
+
+### 1. Clone the repository
+
+``` bash
+git clone https://github.com/Irfan-Mazhar/Speed-Typing-Test.git
+cd Speed-Typing-Test
+```
+
+### 2. Install dependencies
+
+``` bash
+npm install
+```
+
+### 3. Run the development server
+
+``` bash
+npm run dev
+```
+
+Open your browser at **http://localhost:5173** (or the URL shown in
+terminal).
+
+## 🎮 How to Play
+
+1.  Start typing in the input box --- the timer will begin
+    automatically.
+2.  Type as many words as you can before time runs out.
+3.  Check your **WPM, Raw WPM, and Accuracy** stats.
+4.  Press **Shift** or click the **restart button** to try again.
+
+## 📸 Screenshot
+
+![App Screenshot](./assets/screenshot.png)
